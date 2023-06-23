@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9c9b70a5-3e22-4171-8932-dc84643005a3">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="19"/>
+	<parameter name="Imagen" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     PERSONAS."PERSONA_CEDULA" AS CEDULA,
+     PERSONAS."PERSONA_PRI_NOMBRE" ||' '||
+     PERSONAS."PERSONA_PAT_APELLIDO" AS NOMBRES,
+     VETERINARIO."PROFESION" AS PROFESION,
+     SERVICIOS."NOMBRE" AS SERVICIO,
+     AREA_TRABAJO."NOMBRE" AS AREA_TRABAJO
+FROM
+     "VETERINARIA"."PERSONAS" PERSONAS INNER JOIN "VETERINARIA"."VETERINARIO" VETERINARIO ON PERSONAS."PERSONA_ID" = VETERINARIO."PERSONA_ID"
+     INNER JOIN "VETERINARIA"."SERVICIOS" SERVICIOS ON VETERINARIO."SERVICIOS_ID" = SERVICIOS."ID_SERVICIO"
+     INNER JOIN "VETERINARIA"."AREA_TRABAJO" AREA_TRABAJO ON VETERINARIO."AREA_ID" = AREA_TRABAJO."ID_AREA"
+AND VETERINARIO."ESTADO" ='A' ORDER BY VETERINARIO."VETERINARIO_ID"]]>
+	</queryString>
+	<field name="CEDULA" class="java.lang.String"/>
+	<field name="NOMBRES" class="java.lang.String"/>
+	<field name="PROFESION" class="java.lang.String"/>
+	<field name="SERVICIO" class="java.lang.String"/>
+	<field name="AREA_TRABAJO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement x="97" y="12" width="100" height="20" uuid="1bff0154-6156-4c45-98c4-f333845386b9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clínica:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="46" width="100" height="20" uuid="f169fc09-65f7-4d64-997e-c5478b2fb55c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="12" width="156" height="20" uuid="840bcc38-a8b3-4aba-a9c9-8204dc4693b8"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Correo: VetDogeV@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="46" width="100" height="20" uuid="8ebe66da-8b89-4017-a35d-d6db1b7f1c3a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="73" width="100" height="20" uuid="f126adb8-973b-4d0a-8b4d-fc7986f9ed2b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="47" width="272" height="19" uuid="58286688-dd22-43d7-8ed9-c6b56434ff9d"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Av. Diego de Almagro N-3 entre Whymper y Alpallana]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="12" width="100" height="20" uuid="48c0f35b-9185-4a40-a114-b290bc34b44c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Veterinaria Vet Doge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="12" width="100" height="20" uuid="da381150-7dd2-41de-b352-0c871c2c2db1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="46" width="100" height="20" uuid="8ba75c3e-a68d-4427-b177-ca1a15454d19"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[0105974888845-5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="12" width="108" height="20" uuid="ee45e3a2-8e0a-4ead-b16c-c80f85688199"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[4024697 ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="137" y="73" width="100" height="20" uuid="d08595e1-172d-43ba-b2a8-6e79a00f115c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="24" width="151" height="42" uuid="c0fcfd6c-17b8-4b36-95cf-3ac0a3687b28"/>
+				<imageExpression><![CDATA[$P{Imagen}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="2" width="555" height="35" forecolor="#000000" backcolor="#17A1CF" uuid="9cb20c0d-82f3-4317-9546-75cf4c711877"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="161" y="3" width="223" height="34" forecolor="#FFFFFF" uuid="6db79394-d0a3-4c6f-bab0-3fed21d1b7d9"/>
+				<textElement>
+					<font fontName="Nirmala UI" size="22" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Reporte Veterinarios]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" forecolor="#17A1CF" uuid="ae61e1c8-3d2b-4256-9434-daf0fe180e72"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="0" width="100" height="20" forecolor="#17A1CF" uuid="16f75fc3-61e8-4fa8-9fce-899be51984b2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="2" width="100" height="20" forecolor="#17A1CF" uuid="5f467d3e-b5ae-439e-afa2-5567897eaf1d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROFESION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="2" width="100" height="20" forecolor="#17A1CF" uuid="33c6537f-0960-4613-b82a-e9b03ba2c41b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="2" width="100" height="20" forecolor="#17A1CF" uuid="0b5263a2-c0d2-4d22-96f3-f3568ecb959e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AREA_TRABAJO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="42f14bce-f20b-46ca-98e7-36c0c6836a3c"/>
+				<textFieldExpression><![CDATA[$F{CEDULA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="0" width="100" height="20" uuid="7788f67c-4fd6-4e96-ba8d-c39f7e70ce78"/>
+				<textFieldExpression><![CDATA[$F{NOMBRES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="0" width="100" height="20" uuid="76c62c7e-c347-4016-922b-f5336d216d07"/>
+				<textFieldExpression><![CDATA[$F{PROFESION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="0" width="100" height="20" uuid="867933b8-b4ab-4e20-9683-1803f0373061"/>
+				<textFieldExpression><![CDATA[$F{SERVICIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="1560715c-0d0c-472e-8c1f-819ef7439d95"/>
+				<textFieldExpression><![CDATA[$F{AREA_TRABAJO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

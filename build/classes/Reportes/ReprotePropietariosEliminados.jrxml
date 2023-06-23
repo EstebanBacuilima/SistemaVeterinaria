@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="561e8733-6233-4b83-ac33-e7b6c61b9ab0">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Imagen" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT Pr.propietario_id, P.persona_cedula,P.persona_Pri_nombre,P.persona_Seg_nombre, P.persona_Pat_apellido,P.persona_Mat_apellido,P.persona_genero, P.persona_correo,P.persona_telefono, P.persona_movil,P.persona_direccion, TO_CHAR(P.persona_fecha_nacimiento, 'YYYY-MM-DD') FROM personas P, propietario Pr WHERE P.persona_id = Pr.persona_id AND Pr.estado = 'I' ORDER BY Pr.persona_id ASC]]>
+	</queryString>
+	<field name="PROPIETARIO_ID" class="java.math.BigDecimal"/>
+	<field name="PERSONA_CEDULA" class="java.lang.String"/>
+	<field name="PERSONA_PRI_NOMBRE" class="java.lang.String"/>
+	<field name="PERSONA_SEG_NOMBRE" class="java.lang.String"/>
+	<field name="PERSONA_PAT_APELLIDO" class="java.lang.String"/>
+	<field name="PERSONA_MAT_APELLIDO" class="java.lang.String"/>
+	<field name="PERSONA_GENERO" class="java.lang.String"/>
+	<field name="PERSONA_CORREO" class="java.lang.String"/>
+	<field name="PERSONA_TELEFONO" class="java.lang.String"/>
+	<field name="PERSONA_MOVIL" class="java.lang.String"/>
+	<field name="PERSONA_DIRECCION" class="java.lang.String"/>
+	<field name="TO_CHAR(P.PERSONA_FECHA_NACIMIENTO,&apos;YYYY-MM-DD&apos;)" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement x="153" y="22" width="100" height="20" uuid="93ec4dd5-400b-4cf8-a85f-9b32fbc197b2"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Veterinari Vet Doge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="22" width="100" height="20" uuid="e7481cbe-f7d8-4b55-a8b3-1be019596dc7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="83" width="100" height="20" uuid="086ffba5-5984-42be-8c2c-57c759b78f47"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="56" width="100" height="20" uuid="9f9e8bfa-ddb3-402d-9438-5f2241525a83"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="57" width="272" height="19" uuid="32d7c64e-eecf-439c-96aa-9d245546dba6"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Av. Diego de Almagro N-3 entre Whymper y Alpallana]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="56" width="100" height="20" uuid="b91aec3e-0a37-49e3-b08a-a4023791731f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC: ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="142" y="83" width="100" height="20" uuid="ac309916-4c2b-485a-ab7e-e7022c6a8ff6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="102" y="22" width="100" height="20" uuid="ed0006b5-f485-4fc3-a48a-64b709f82380"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empresa: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="56" width="100" height="20" uuid="bfab26b8-6699-4d70-836b-0d18853ef8cd"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[0105974888845-5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="22" width="50" height="20" uuid="440b01cc-29a0-4839-ad82-efbac0eca92c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="22" width="108" height="20" uuid="82350031-af2d-40cd-91fe-cb355de78963"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[4024697 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="22" width="127" height="24" uuid="cd51e62d-4511-46ea-af5a-23983097f25f"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[VetDogeV@gmail.com]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="151" height="42" uuid="3184bc95-4c3d-4a1d-9210-fa3e2fc27031"/>
+				<imageExpression><![CDATA[$P{Imagen}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="35" forecolor="#000000" backcolor="#17A1CF" uuid="74082b25-4fb5-481e-b855-e21f097226a6"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="181" y="0" width="223" height="36" uuid="ec3ca5cf-7ff5-44cd-8889-2ac1777c523a"/>
+				<textElement>
+					<font fontName="Nirmala UI" size="22" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Reporte Propietarios]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="232" y="6" width="47" height="19" forecolor="#17A1CF" uuid="25905852-4ae4-46f9-8d70-47accd6a374e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GENERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="3" width="48" height="16" forecolor="#17A1CF" uuid="46c9fb3c-2d75-4c6c-8b18-13d22bf80b1b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="6" width="48" height="20" forecolor="#00CCFF" uuid="e302585d-6b04-46ae-8118-147692187988"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CORREO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="3" width="68" height="20" forecolor="#17A1CF" uuid="72780bb8-3e76-4041-9e87-29669b101415"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="75" y="5" width="137" height="16" forecolor="#17A1CF" uuid="e58c35be-d3fd-46d6-8d74-3fac4cb3cea6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRES Y APELLIDOS ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="5" width="65" height="20" forecolor="#17A1CF" uuid="026dc392-6fec-4a8c-84f3-fac424a109df"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="59" height="20" uuid="1566fcb5-f98b-4941-ad79-d65644837ee8"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONA_CEDULA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="2" width="40" height="20" uuid="c429398d-a4f2-49e6-855c-9ab5a0f6919b"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONA_PRI_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="2" width="49" height="20" uuid="046601e4-0a88-4bb4-906a-77307caf75b0"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONA_SEG_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="181" y="2" width="56" height="20" uuid="b4c7598e-3c44-4924-8cd1-b78e070b3f61"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONA_MAT_APELLIDO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="2" width="47" height="20" uuid="463e7317-9bd9-4a84-a025-13b27d6873a2"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONA_GENERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="2" width="96" height="20" uuid="331b9568-23f3-4da9-8402-4ae9c588d46c"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONA_CORREO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="2" width="70" height="20" uuid="13f307be-df05-4f98-b47b-bb92f81c08a9"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONA_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="2" width="62" height="20" uuid="1236570e-8c1d-41fc-8017-98d948ede616"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONA_PAT_APELLIDO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="0" width="92" height="20" uuid="669f2404-4737-41c6-b175-39ef2eaa7d07"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONA_DIRECCION}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="64" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="283" pageHeight="425" columnWidth="243" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0ae87019-29db-4de2-8d9c-ace78c24354f">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Id_fac" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Imagen" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     CITAS."HORA" AS CITAS_HORA,
+     CITAS."ID_CITA" AS CITAS_ID_CITA,
+     CITAS."FECHA" AS CITAS_FECHA,
+     SERVICIOS."NOMBRE" AS SERVICIOS_NOMBRE,
+     PERSONAS."PERSONA_PRI_NOMBRE" || ' ' ||
+     PERSONAS."PERSONA_PAT_APELLIDO" || ' ' ||
+     PERSONAS."PERSONA_MAT_APELLIDO" AS Veterinario,
+     AREA_TRABAJO."NOMBRE" AS AREA_TRABAJO_NOMBRE
+FROM
+     "VETERINARIA"."SERVICIOS" SERVICIOS INNER JOIN "VETERINARIA"."CITAS" CITAS ON SERVICIOS."ID_SERVICIO" = CITAS."ID_SERVICIO"
+     INNER JOIN "VETERINARIA"."VETERINARIO" VETERINARIO ON SERVICIOS."ID_SERVICIO" = VETERINARIO."SERVICIOS_ID"
+     AND VETERINARIO."VETERINARIO_ID" = CITAS."ID_VETERINARIO"
+     INNER JOIN "VETERINARIA"."PERSONAS" PERSONAS ON VETERINARIO."PERSONA_ID" = PERSONAS."PERSONA_ID"
+     INNER JOIN "VETERINARIA"."AREA_TRABAJO" AREA_TRABAJO ON VETERINARIO."AREA_ID" = AREA_TRABAJO."ID_AREA"
+     AND AREA_TRABAJO."ID_AREA" = CITAS."ID_AREA"
+WHERE 
+citas.id_factura = $P{Id_fac} order by citas.id_cita]]>
+	</queryString>
+	<field name="CITAS_HORA" class="java.lang.String"/>
+	<field name="CITAS_ID_CITA" class="java.math.BigDecimal"/>
+	<field name="CITAS_FECHA" class="java.sql.Timestamp"/>
+	<field name="SERVICIOS_NOMBRE" class="java.lang.String"/>
+	<field name="VETERINARIO" class="java.lang.String"/>
+	<field name="AREA_TRABAJO_NOMBRE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="115" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="253" height="111" uuid="d6c3324e-70dc-4f40-acef-c2a34749d80b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="80" y="37" width="125" height="17" uuid="306c4df7-ffc0-4b3c-9558-aec6d3ddd551"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[4024697 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="37" width="48" height="17" uuid="53dfc45a-2f2a-423a-8aa3-be349647956e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="71" width="150" height="30" uuid="c1326adf-8653-4ab6-a200-664bc5b8ee7e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Av. Diego de Almagro N-3 entre Whymper y Alpallana]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="71" width="48" height="17" uuid="3705456d-0bfc-4000-b7a0-19c30672e435"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="20" width="125" height="17" uuid="2b89e457-b194-41de-bc44-ab8aa1f60454"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[0105974888845-5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="253" height="20" uuid="d526338e-5f7f-4e91-b05f-a6ec46df9cb1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clinica Veterinaria VETDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="54" width="150" height="17" uuid="c6df5332-92cb-4369-ba0f-f79047561650"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[VetDogeV@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="54" width="48" height="17" uuid="27fb8970-eb67-4e30-8d96-37fd9bb30cb3"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correo: VetDogeV@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="20" width="38" height="17" uuid="8a7d3113-a71a-4517-84a0-570c665c7765"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC: ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="189" splitType="Stretch">
+			<rectangle>
+				<reportElement x="161" y="0" width="92" height="70" uuid="ae8bc8cc-42fd-4d06-907e-0945d7f96feb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="89" width="253" height="67" uuid="dec4e2d7-be43-4728-86ef-4791b1e92e7f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="156" width="253" height="19" uuid="a8589358-657b-43a4-9fa5-1179099078b5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="70" width="253" height="19" uuid="6397a169-5b49-421f-8780-226070f6cb77"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="141" y="98" width="100" height="20" uuid="937c0691-66c6-47eb-8018-9713ee272d5f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[HORA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="123" width="100" height="20" uuid="b74d2401-b2d1-4da5-a919-15337204cd97"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CITAS_HORA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="98" width="127" height="20" uuid="e78c7dd7-e436-44e1-ac0a-3fa0116720ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="14" y="123" width="127" height="20" uuid="fd0abd51-b4eb-455c-8084-ef3d889ed973"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CITAS_FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="70" width="102" height="19" uuid="7a2f83b5-33b0-4f73-a08a-4622eb4d0755"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SERVICIOS_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="70" width="139" height="20" uuid="ca60d1c3-6bb9-4305-8b71-033238f0be32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VETERINARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="102" y="69" width="12" height="20" uuid="6ea9ee2c-7930-453b-a441-16a0620c526e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="16"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="156" width="62" height="19" uuid="ef11a2ea-834e-48cb-a115-14a4579add30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[Consultorio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="62" y="156" width="191" height="19" uuid="12c3b162-6326-4d25-86b9-aa8c53c2724f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AREA_TRABAJO_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="161" y="14" width="92" height="20" uuid="6f355a43-6c56-4e5b-abfe-567480c35209"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<text><![CDATA[CITA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="161" y="34" width="92" height="20" uuid="10c21ee1-6774-4b83-82c2-316b3d64be85"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CITAS_ID_CITA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="175" width="253" height="14" uuid="097f3ed7-1029-40ff-afae-1f31abab06f8"/>
+				<text><![CDATA[-----------------------------------------------------------------------------]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="161" height="69" uuid="f8a3b988-c4f4-42a9-b37d-aa22a531a9ba"/>
+				<imageExpression><![CDATA[$P{Imagen}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<summary>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="253" height="42" uuid="1b3481ef-54b0-4c02-b4d7-a770e2ee655a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Si el paciente no asiste o no esta a la hora indicada, debe cancelar una nueva cita]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

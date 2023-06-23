@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8221daf7-4664-4a81-bb1a-98afb09cd7a9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fact" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     SERVICIOS."NOMBRE" AS SERVICIOS_NOMBRE,
+     SERVICIOS."DESCRIPCION" AS SERVICIOS_DESCRIPCION,
+     SERVICIOS."PRECIO" AS SERVICIOS_PRECIO
+FROM
+     "VETERINARIA"."SERVICIOS" SERVICIOS INNER JOIN "VETERINARIA"."CITAS" CITAS ON SERVICIOS."ID_SERVICIO" = CITAS."ID_SERVICIO"
+     WHERE citas.id_factura = $P{fact}]]>
+	</queryString>
+	<field name="SERVICIOS_NOMBRE" class="java.lang.String"/>
+	<field name="SERVICIOS_DESCRIPCION" class="java.lang.String"/>
+	<field name="SERVICIOS_PRECIO" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<rectangle>
+				<reportElement x="190" y="0" width="258" height="31" uuid="72089a9a-8e30-4e04-9d65-e48baf0b6c3b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="448" y="0" width="92" height="31" uuid="99ee95ca-7f73-4e5d-a94d-93c23e82f3c3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="18" y="0" width="172" height="31" uuid="a56c80c3-7c7f-4a37-ad6e-fd0b6c098683"/>
+			</rectangle>
+			<textField>
+				<reportElement x="18" y="0" width="172" height="31" uuid="808b75aa-7ba5-4701-907f-0b1a27955b78"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SERVICIOS_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="258" height="31" uuid="ee66a83c-8ddc-45ee-a3d5-86a2e96f0970"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SERVICIOS_DESCRIPCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="0" width="92" height="31" uuid="e15f6f0c-c3ef-418d-811b-47afba698933"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SERVICIOS_PRECIO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4569026e-9403-4119-974f-251a3aa21967">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\edu\\Downloads\\ProyectoTercerCliclo\\src\\Reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Imagen" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     PERSONAS."PERSONA_CEDULA" AS CEDULA,
+     PERSONAS."PERSONA_PRI_NOMBRE" ||' '||PERSONAS."PERSONA_PAT_APELLIDO" "NOMBRE Y APELLIDO",
+     PERSONAS."PERSONA_TELEFONO" AS TELEFONO,
+     SERVICIOS."NOMBRE" AS SERVICIOS,
+     AUXILIAR."LABORES" AS LABORES
+FROM
+     "VETERINARIA"."PERSONAS" PERSONAS INNER JOIN "VETERINARIA"."AUXILIAR" AUXILIAR ON PERSONAS."PERSONA_ID" = AUXILIAR."PERSONA_ID"
+     INNER JOIN "VETERINARIA"."SERVICIOS" SERVICIOS ON AUXILIAR."SERVICIOS_ID" = SERVICIOS."ID_SERVICIO" AND AUXILIAR."ESTADO" = 'A' ORDER BY AUXILIAR."AUXILIAR_ID"]]>
+	</queryString>
+	<field name="CEDULA" class="java.lang.String"/>
+	<field name="NOMBRE Y APELLIDO" class="java.lang.String"/>
+	<field name="TELEFONO" class="java.lang.String"/>
+	<field name="SERVICIOS" class="java.lang.String"/>
+	<field name="LABORES" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="116" splitType="Stretch">
+			<staticText>
+				<reportElement x="270" y="12" width="100" height="20" uuid="1f79d136-38df-4579-9926-46ca46065718"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="73" width="100" height="20" uuid="c8d5673a-aa70-4ff8-8d1b-60c0822eaa44"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="46" width="100" height="20" uuid="c2739699-a80e-4205-8b6a-2d2a3d1ae54f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="12" width="108" height="20" uuid="255586e4-7887-4f28-8d01-1cd36a1a7565"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[4024697 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="47" width="272" height="19" uuid="e348127c-06b5-4976-b220-e7f1cdefae96"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Av. Diego de Almagro N-3 entre Whymper y Alpallana]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="12" width="100" height="20" uuid="bc641f09-0a5e-41d6-8591-41e82153484d"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Veterinaria Vet Doge]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="155" y="73" width="100" height="20" uuid="949cfa3c-5ef3-4ee2-8d36-b000f46cd31d"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="115" y="12" width="100" height="20" uuid="8c799202-9a42-463a-bf2f-dd73bfa7c5fe"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clínica:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="46" width="100" height="20" uuid="997f3d48-650f-46e5-80f5-91a8b6fab46c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[0105974888845-5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="12" width="156" height="20" uuid="19e8969e-d9bc-48f2-b96d-ae1e4c880023"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Correo: VetDogeV@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="239" y="46" width="100" height="20" uuid="384c085b-5cf2-429d-b627-dd2d94e0feeb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="151" height="42" uuid="a8d72075-d67e-4532-a07f-2f14292ec2b0"/>
+				<imageExpression><![CDATA[$P{Imagen}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="35" forecolor="#000000" backcolor="#17A1CF" uuid="79f9b17f-ccc5-43af-9c13-466e4de7edb9"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="182" y="0" width="223" height="34" forecolor="#FFFFFF" uuid="9caeb44d-7b0d-45c1-9b9a-feaafae5d41f"/>
+				<textElement>
+					<font fontName="Nirmala UI" size="22" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Reporte Auxiliares]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="0" width="100" height="20" forecolor="#17A1CF" uuid="445d9fa5-fab1-4c4d-957d-dd447546500e"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="0" width="109" height="20" forecolor="#17A1CF" uuid="2cc9447f-1400-491d-9ee0-12fe5ac6e268"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[NOMBRE Y APELLIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="0" width="100" height="20" forecolor="#17A1CF" uuid="b2c823a9-3d3d-4a6d-b90f-42aacdda79d0"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[TELEFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="0" width="87" height="20" forecolor="#17A1CF" uuid="331199ab-f8c3-4e3b-ac9f-e1b968d8a16d"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[SERVICIOS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="15" y="0" width="100" height="20" uuid="cf84f6b9-88cc-4d9e-bc5b-1c613710645f"/>
+				<textFieldExpression><![CDATA[$F{CEDULA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="0" width="109" height="20" uuid="3d8a9dde-d80f-438e-b4e0-adf0747397f7"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE Y APELLIDO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="0" width="87" height="20" uuid="6f14af1f-aecf-4a90-9603-c1c5bc188347"/>
+				<textFieldExpression><![CDATA[$F{SERVICIOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="3" width="100" height="20" uuid="914170b2-d184-4aee-bb98-2c344d6d830b"/>
+				<textFieldExpression><![CDATA[$F{TELEFONO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

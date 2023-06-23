@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Factura" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3c921b5f-38d7-45f2-a20e-c78bb6132129">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Id_factura" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\edu\\Downloads\\ProyectoTercerCliclo\\src\\Reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Imagen" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     FACTURA."TOTAL" AS FACTURA_TOTAL,
+     FACTURA."FECHA" AS FACTURA_FECHA,
+     FACTURA."ID_FACTURA" AS FACTURA_ID_FACTURA,
+     PERSONAS."PERSONA_CEDULA" AS PERSONAS_PERSONA_CEDULA,
+     PERSONAS."PERSONA_PRI_NOMBRE" || ' ' ||
+     PERSONAS."PERSONA_SEG_NOMBRE" || ' ' ||
+     PERSONAS."PERSONA_PAT_APELLIDO" || ' ' ||
+     PERSONAS."PERSONA_MAT_APELLIDO" AS NOMBRE,
+     PERSONAS."PERSONA_CORREO" AS PERSONAS_PERSONA_CORREO,
+     PERSONAS."PERSONA_DIRECCION" AS PERSONAS_PERSONA_DIRECCION,
+     PERSONAS."PERSONA_TELEFONO" AS PERSONAS_PERSONA_TELEFONO,
+     PERSONAS."PERSONA_MOVIL" AS PERSONAS_PERSONA_MOVIL
+FROM
+     "VETERINARIA"."PROPIETARIO" PROPIETARIO INNER JOIN "VETERINARIA"."FACTURA" FACTURA ON PROPIETARIO."PROPIETARIO_ID" = FACTURA."ID_PROPIETARIO"
+     INNER JOIN "VETERINARIA"."PERSONAS" PERSONAS ON PROPIETARIO."PERSONA_ID" = PERSONAS."PERSONA_ID"
+     
+     WHERE ID_FACTURA = $P{Id_factura}]]>
+	</queryString>
+	<field name="FACTURA_TOTAL" class="java.lang.Double"/>
+	<field name="PERSONAS_PERSONA_CEDULA" class="java.lang.String"/>
+	<field name="NOMBRE" class="java.lang.String"/>
+	<field name="PERSONAS_PERSONA_CORREO" class="java.lang.String"/>
+	<field name="PERSONAS_PERSONA_DIRECCION" class="java.lang.String"/>
+	<field name="PERSONAS_PERSONA_TELEFONO" class="java.lang.String"/>
+	<field name="PERSONAS_PERSONA_MOVIL" class="java.lang.String"/>
+	<field name="FACTURA_ID_FACTURA" class="java.math.BigDecimal"/>
+	<field name="FACTURA_FECHA" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="308" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="235" y="57" width="305" height="141" uuid="0eb67f88-e584-4557-baf3-acfab9cd4b89"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="309" y="114" width="125" height="20" uuid="c9097363-0e39-437c-ae34-3e23a03ca63f"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[4024697 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="154" width="100" height="20" uuid="ec4dc702-59a2-41f5-b197-15badf1d2506"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="94" width="125" height="20" uuid="04a61854-f8a2-4c21-b864-d28b227cc39a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[0105974888845-5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="94" width="38" height="20" uuid="1c6fb612-cad5-447c-a9be-4124798936f2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="114" width="60" height="20" uuid="ec30a259-2641-4705-ab15-95de9928d5ff"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="134" width="60" height="20" uuid="63711761-0d17-4b84-8d66-0bc9bccf6a16"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correo: VetDogeV@gmail.com]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="26" y="62" width="206" height="141" uuid="77935675-5134-47e1-b044-cb847b4ee2b8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="235" y="174" width="305" height="19" uuid="b09beda5-9e3f-42b0-a6cc-c41a105d4b50"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Av. Diego de Almagro N-3 entre Whymper y Alpallana]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="46" y="154" width="161" height="32" uuid="07642a47-bde1-4d9d-a72e-300de8e82d48"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Al servicio de tus mascotas ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="18" y="207" width="522" height="94" uuid="825e0330-66ea-4cff-8ef2-742874fc1238"/>
+			</rectangle>
+			<line>
+				<reportElement x="18" y="230" width="522" height="1" uuid="14e3bf0b-bdfc-45b6-aebf-8465face086e"/>
+			</line>
+			<staticText>
+				<reportElement x="34" y="210" width="56" height="20" uuid="fe0c375f-1289-49c9-804f-ba26ee8c459d"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="210" width="43" height="20" uuid="ec1c58cd-9bff-429e-82c1-bf215f70bff3"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="18" y="253" width="522" height="1" uuid="0ae9a0ab-13c9-4458-82f1-e7c88b98baf6"/>
+			</line>
+			<staticText>
+				<reportElement x="34" y="233" width="100" height="20" uuid="86f21e3c-8a68-4771-8870-af2501b2bee4"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="18" y="276" width="522" height="1" uuid="04e5e149-f97c-4cac-bf11-cf8051100684"/>
+			</line>
+			<staticText>
+				<reportElement x="334" y="233" width="55" height="20" uuid="4ee36294-c407-4d4d-b041-db2d13205f9d"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="257" width="100" height="20" uuid="24ab4d47-e304-4aba-89dc-a40eaf748bfb"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="281" width="100" height="20" uuid="4c6d6177-8ae9-476a-b7d4-ade2973fb09d"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="257" width="100" height="20" uuid="9d6ecb13-d2d7-47e8-8fb3-e7a59e798664"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="389" y="211" width="142" height="20" uuid="1fb2fd49-e18c-4e42-9b36-9579e2bcd961"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FACTURA_FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="234" width="223" height="20" uuid="83e99122-cac6-49a5-ab6a-7df097c232fb"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="234" width="142" height="20" uuid="345c72cd-d522-48e6-a00f-e4f998519597"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONAS_PERSONA_CORREO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="210" width="223" height="20" uuid="fc39cb7b-4598-4c7e-aad4-94d796f4e6a3"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONAS_PERSONA_CEDULA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="256" width="223" height="20" uuid="2e8bb7d1-ee7f-4687-a1b9-5626b88008e0"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONAS_PERSONA_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="257" width="142" height="20" uuid="a62bd937-e93d-46bc-bb88-c6b270dc7578"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONAS_PERSONA_MOVIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="281" width="431" height="20" uuid="38a32633-aa50-49c7-ae2a-67c0df42c804"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PERSONAS_PERSONA_DIRECCION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="434" y="114" width="25" height="20" uuid="d0ec0d1b-3313-4a08-9b1e-f7807c5a3624"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="68" width="305" height="20" uuid="90d7e05e-03bf-49c9-8fe8-9718e9c34ef7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clinica Veterinaria VETDO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="459" y="114" width="81" height="20" uuid="fdb10bdf-930d-4ac9-94af-565a549876a3"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FACTURA_ID_FACTURA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="309" y="134" width="150" height="20" uuid="d23e5699-c490-4646-9848-c1dec6a650a5"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[VetDogeV@gmail.com]]></text>
+			</staticText>
+			<image>
+				<reportElement x="46" y="72" width="241" height="135" uuid="02b3794e-63f2-4aca-a2b3-522602cfe612"/>
+				<imageExpression><![CDATA[$P{Imagen}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="18" y="0" width="172" height="25" uuid="0932ff43-8c17-45fd-a55e-bd2f61de5c46"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="190" y="0" width="258" height="25" uuid="14d60a4b-4505-4438-bcc9-cebb7991a97f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="448" y="0" width="92" height="25" uuid="6e6b726b-7def-4854-b9cd-f26b8be90ba4"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="5" width="172" height="20" uuid="9006295b-4685-43ce-bb80-89ad54955c48"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Servicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="5" width="258" height="20" uuid="76e37b62-f49b-4c63-a123-810d0fa65b45"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="5" width="92" height="20" uuid="038622d9-5ec8-4605-b775-eec6f0291acc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="362" splitType="Stretch">
+			<rectangle>
+				<reportElement x="18" y="0" width="172" height="361" uuid="15a83124-ff0f-49cd-8bc8-d475e8d78fa8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="190" y="0" width="258" height="361" uuid="5024bf02-fa42-4fcc-b977-46e170fea167"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="448" y="0" width="92" height="361" uuid="81b4e56f-92b2-4be0-ae83-b8f32bd498e0"/>
+			</rectangle>
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="361" uuid="45b5bd6a-77f8-475a-a1fa-62d369b5fae2"/>
+				<subreportParameter name="fact">
+					<subreportParameterExpression><![CDATA[$F{FACTURA_ID_FACTURA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DetalleF.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<rectangle>
+				<reportElement x="18" y="0" width="430" height="20" uuid="71038c86-7472-488c-9a43-742e9570a00a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="448" y="0" width="92" height="20" uuid="85f55b75-eb49-4eea-9f15-e3a2f6808c6c"/>
+			</rectangle>
+			<textField>
+				<reportElement x="448" y="0" width="92" height="20" uuid="db10eb2a-b5f3-49aa-ba07-0aac104d419c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FACTURA_TOTAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="389" y="0" width="59" height="20" uuid="3950a9da-8897-4f07-b664-4a6822cfaae2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:  ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

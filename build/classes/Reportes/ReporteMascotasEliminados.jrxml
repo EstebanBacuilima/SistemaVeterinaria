@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a15f3a04-313c-449f-848c-7e92fe41cba6">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="459761a2-6207-4749-b350-a19bec145f03"/>
+	<subDataset name="Especies" uuid="7ef933ac-1942-4737-86ee-0ace8293ba9a">
+		<queryString language="SQL">
+			<![CDATA[SELECT mascota_especie, COUNT(mascota_especie) FROM mascota GROUP BY mascota_especie]]>
+		</queryString>
+		<field name="MASCOTA_ESPECIE" class="java.lang.String"/>
+		<field name="COUNT(MASCOTA_ESPECIE)" class="java.math.BigDecimal"/>
+	</subDataset>
+	<parameter name="Imagen" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT mascota_id,mascota_clave,mascota_nombre, mascota_edad, mascota_sexo,mascota_especie FROM mascota WHERE estado = 'I' ORDER BY mascota_id]]>
+	</queryString>
+	<field name="MASCOTA_ID" class="java.math.BigDecimal"/>
+	<field name="MASCOTA_CLAVE" class="java.lang.String"/>
+	<field name="MASCOTA_NOMBRE" class="java.lang.String"/>
+	<field name="MASCOTA_EDAD" class="java.math.BigDecimal"/>
+	<field name="MASCOTA_SEXO" class="java.lang.String"/>
+	<field name="MASCOTA_ESPECIE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch">
+			<staticText>
+				<reportElement x="111" y="17" width="100" height="24" uuid="79fa40c3-928d-4177-ae62-b88d3c696c3d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empresa: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="41" width="100" height="20" uuid="c03ada5a-7e5b-4bb6-a014-ccc2a8b9f7c2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="17" width="100" height="24" uuid="37ebd26d-2b7a-4575-acc7-6fc9b13dabd0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefono:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="41" width="100" height="20" uuid="cc10e41d-9adc-4a76-9c56-6027e4bb6cad"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="17" width="100" height="24" uuid="d8131c9a-cc61-44b3-a957-a2cb52d20f01"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Veterinari Vet Doge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="41" width="100" height="20" uuid="461b57b2-6b6b-4058-8b31-2d43b5659ada"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[0105974888845-5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="17" width="108" height="24" uuid="0f741b7e-a459-4cba-8263-7f34ff8b7de1"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[4024697 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="42" width="282" height="19" uuid="17c96020-9514-4220-aa60-b992084d5fff"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Av. Diego de Almagro N-3 entre Whymper y Alpallana]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="17" width="100" height="24" uuid="cec3c85f-602e-4f99-809b-5ababd213ef3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="17" width="127" height="24" uuid="20c4a4fb-96d5-4896-a4da-ec4d997ed48f"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[VetDogeV@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="73" width="100" height="20" uuid="c202e7d3-5b37-4537-9acd-7cf89c794b7d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="51" y="73" width="100" height="20" uuid="9dd11c9d-9760-4b38-97a6-db442fae0144"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="151" height="42" uuid="cf27f2bc-02f6-4235-82d8-0a770d102723"/>
+				<imageExpression><![CDATA[$P{Imagen}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="1" width="555" height="32" forecolor="#000000" backcolor="#17A1CF" uuid="b7b3f51e-02a7-4b18-8adb-a6a1cf5a4a15"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="135" y="0" width="318" height="42" forecolor="#FFFFFF" uuid="8ad0fbea-7370-42f8-ba19-a8d9977ed5cf"/>
+				<textElement>
+					<font fontName="Nirmala UI" size="22" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Reporte Mascotas Eliminados]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="2" width="22" height="20" forecolor="#17A1CF" uuid="1bcae70f-13d4-484d-84ab-ffeb6caee5a7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="2" width="42" height="20" forecolor="#17A1CF" uuid="f89cc564-c657-467b-85e8-4b0b45d9b964"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLAVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="0" width="48" height="20" forecolor="#17A1CF" uuid="e5acbe4b-c32a-4271-a025-ded6651cbd82"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="0" width="32" height="20" forecolor="#17A1CF" uuid="a863fad4-4f67-45ab-837b-e754982a3fef"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="1" width="31" height="20" forecolor="#17A1CF" uuid="fdac9340-e513-4783-b00b-517949b21818"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEXO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="0" width="49" height="20" forecolor="#17A1CF" uuid="78d09d0c-bdf6-488d-a529-7dcad26e8145"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPECIE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="24" y="3" width="22" height="20" uuid="ce53e673-9049-4884-ae89-50e9e04c8f76"/>
+				<textFieldExpression><![CDATA[$F{MASCOTA_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="3" width="42" height="20" uuid="080c3ad6-b20a-477a-9589-ec4429705664"/>
+				<textFieldExpression><![CDATA[$F{MASCOTA_CLAVE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="168" y="3" width="75" height="20" uuid="a84a4e1b-1f9f-411f-beef-2f9e90210c7f"/>
+				<textFieldExpression><![CDATA[$F{MASCOTA_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="257" y="3" width="32" height="20" uuid="d7eed063-e448-479b-adf7-a3f029e9964a"/>
+				<textFieldExpression><![CDATA[$F{MASCOTA_EDAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="3" width="52" height="20" uuid="2fed4af4-e02c-4888-90bc-b5193cf28a26"/>
+				<textFieldExpression><![CDATA[$F{MASCOTA_SEXO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="3" width="77" height="20" uuid="c0ef6883-4ad5-45fb-9108-01d399b2a2ea"/>
+				<textFieldExpression><![CDATA[$F{MASCOTA_ESPECIE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="282" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="90" splitType="Stretch">
+			<textField>
+				<reportElement x="524" y="70" width="31" height="20" uuid="8c500ca4-4cd3-4ec6-9fd1-b3b69459714f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="43" splitType="Stretch"/>
+	</summary>
+</jasperReport>
